@@ -2,7 +2,7 @@ C++ client for dYdX (v4 API).
 
 ## Development
 
-Install dependencies, on Ubuntu the commands is:
+Install dependencies, on Ubuntu the command is:
 
 ```
 sudo apt install libprotobuf-dev protobuf-compiler
