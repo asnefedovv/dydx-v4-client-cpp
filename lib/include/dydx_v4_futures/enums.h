@@ -50,6 +50,7 @@ inline std::string to_string(ValidatorStatus validator_status)
         case ValidatorStatus::BOND_STATUS_UNBONDED:
             return "BOND_STATUS_UNBONDED";
     }
+    assert(false);
 }
 
 inline std::ostream& operator<<(std::ostream& os, const ValidatorStatus& validator_status)
@@ -82,6 +83,7 @@ inline std::string to_string(OrderType order_type)
         case OrderType::TAKE_PROFIT_MARKET:
             return "TAKE_PROFIT_MARKET";
     }
+    assert(false);
 }
 
 inline std::ostream& operator<<(std::ostream& os, const OrderType& order_type)
@@ -102,6 +104,7 @@ inline std::string to_string(OrderSide order_side)
         case OrderSide::SELL:
             return "SELL";
     }
+    assert(false);
 }
 
 inline std::ostream& operator<<(std::ostream& os, const OrderSide& order_side)
@@ -125,6 +128,7 @@ inline std::string to_string(OrderTimeInForce order_time_in_force)
         case OrderTimeInForce::FOK:
             return "FOK";
     }
+    assert(false);
 }
 
 inline std::ostream& operator<<(std::ostream& os, const OrderTimeInForce& order_time_in_force)
@@ -151,6 +155,7 @@ inline std::string to_string(OrderExecution order_execution)
         case OrderExecution::POST_ONLY:
             return "POST_ONLY";
     }
+    assert(false);
 }
 
 inline std::ostream& operator<<(std::ostream& os, const OrderExecution& order_execution)
@@ -180,6 +185,7 @@ inline std::string to_string(OrderStatus order_status)
         case OrderStatus::FILLED:
             return "FILLED";
     }
+    assert(false);
 }
 
 inline std::ostream& operator<<(std::ostream& os, const OrderStatus& order_status)
@@ -197,6 +203,7 @@ inline std::string to_string(TickerType ticker_type)
         case TickerType::PERPETUAL:
             return "PERPETUAL";
     }
+    assert(false);
 }
 
 inline std::ostream& operator<<(std::ostream& os, const TickerType& ticker_type)
@@ -220,6 +227,7 @@ inline std::string to_string(PositionStatus position_status)
         case PositionStatus::LIQUIDATED:
             return "LIQUIDATED";
     }
+    assert(false);
 }
 
 inline std::ostream& operator<<(std::ostream& os, const PositionStatus& position_status)
@@ -240,6 +248,7 @@ inline std::string to_string(TimePeriod time_period)
         case TimePeriod::SEVEN_DAYS:
             return "SEVEN_DAYS";
     }
+    assert(false);
 }
 
 inline std::ostream& operator<<(std::ostream& os, const TimePeriod& time_period)
@@ -275,6 +284,7 @@ inline std::string to_string(CandlesResolution candles_resolution)
         case CandlesResolution::ONE_DAY:
             return "1DAY";
     }
+    assert(false);
 }
 
 inline std::ostream& operator<<(std::ostream& os, const CandlesResolution& candles_resolution)
