@@ -45,10 +45,10 @@ make dydx_v4_indexer_rest_client_example
 
 ## Example account
 
-There is aa example testnet account info in `lib/include/dydx_v4_futures/example_configs.h`.
+There is an example testnet account info in `lib/include/dydx_v4_futures/example_configs.h`.
 It's possible to add this account to e.g. MetaMask and then to 
 log into it at https://v4.testnet.dydx.exchange/, but keep in mind that
-this account is publicly available account, and it might be out of money. You can always create a
+this account is publicly available, and it might be out of money. You can always create a
 personal testnet account.
 
 ## Placing and canceling orders
