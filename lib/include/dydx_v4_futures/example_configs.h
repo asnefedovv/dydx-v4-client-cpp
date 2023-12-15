@@ -5,6 +5,8 @@
 #include <common/requests/base.h>
 #include <common/streams/base.h>
 
+#include <dydx_v4_futures/exchange_info.h>
+
 namespace dydx_v4_client_lib {
 
 inline const common::RestConfig INDEXER_API_HOST_MAINNET {.host = "indexer.dydx.trade"};
