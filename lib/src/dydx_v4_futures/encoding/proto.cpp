@@ -115,7 +115,7 @@ Subticks ToProtoSubticks(common::Price price, const InstrumentInfo& info)
 }
 
 std::string CreatePlaceOrderMessage(
-    const ExchangeInfo& exchange_info, const AccountInfo& account_info, const PlaceShortTermOrderParams& params
+    const ExchangeInfo& exchange_info, const AccountInfo& account_info, const LowLevelPlaceShortTermOrderParams& params
 )
 {
     auto info = exchange_info.GetInstrumentInfo(params.symbol);
@@ -155,7 +155,7 @@ dydxprotocol::clob::Order_ConditionType ToProtoConditionType(ConditionType condi
 }
 
 std::string CreatePlaceOrderMessage(
-    const ExchangeInfo& exchange_info, const AccountInfo& account_info, const PlaceLongTermOrderParams& params
+    const ExchangeInfo& exchange_info, const AccountInfo& account_info, const LowLevelPlaceLongTermOrderParams& params
 )
 {
     auto info = exchange_info.GetInstrumentInfo(params.symbol);
@@ -188,7 +188,7 @@ std::string CreatePlaceOrderMessage(
 }
 
 std::string CreateCancelOrderMessage(
-    const ExchangeInfo& exchange_info, const AccountInfo& account_info, const CancelShortTermOrderParams& params
+    const ExchangeInfo& exchange_info, const AccountInfo& account_info, const LowLevelCancelShortTermOrderParams& params
 )
 {
     auto info = exchange_info.GetInstrumentInfo(params.symbol);
@@ -210,7 +210,7 @@ std::string CreateCancelOrderMessage(
 }
 
 std::string CreateCancelOrderMessage(
-    const ExchangeInfo& exchange_info, const AccountInfo& account_info, const CancelLongTermOrderParams& params
+    const ExchangeInfo& exchange_info, const AccountInfo& account_info, const LowLevelCancelLongTermOrderParams& params
 )
 {
     auto info = exchange_info.GetInstrumentInfo(params.symbol);

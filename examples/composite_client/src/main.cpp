@@ -30,7 +30,6 @@ int main()
                          .order_cid = 2,
                          .price = 2200,
                          .size = 0.01,
-                         .good_till_timestamp = static_cast<uint32_t>(std::time(0) + 1000),
                      }
                  )
               << std::endl;
@@ -41,7 +40,7 @@ int main()
                      dydx_v4_client_lib::CancelLongTermOrderParams {
                          .symbol = "ETH-USD",
                          .order_cid = 2,
-                         .good_till_timestamp = static_cast<uint32_t>(std::time(0) + 1000),
+                         .conditional = false,
                      }
                  )
               << std::endl;
@@ -55,7 +54,6 @@ int main()
                          .order_cid = 3,
                          .price = 2200,
                          .size = 0.01,
-                         .good_till_block = client.node_grpc_gateway_rest_client->GetLatestBlockHeight() + 15,
                      }
                  )
               << std::endl;
@@ -66,7 +64,6 @@ int main()
                      dydx_v4_client_lib::CancelShortTermOrderParams {
                          .symbol = "ETH-USD",
                          .order_cid = 3,
-                         .good_till_block = client.node_grpc_gateway_rest_client->GetLatestBlockHeight() + 15,
                      }
                  )
               << std::endl;

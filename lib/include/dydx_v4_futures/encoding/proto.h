@@ -50,20 +50,20 @@ enum class PlaceOrderTimeInForce {
     FILL_OR_KILL,
 };
 
-struct PlaceShortTermOrderParams {
+struct LowLevelPlaceShortTermOrderParams {
     common::Symbol symbol;
     OrderSide side;
-    PlaceOrderTimeInForce time_in_force = PlaceOrderTimeInForce::UNSPECIFIED;
+    PlaceOrderTimeInForce time_in_force;
     OrderCid order_cid;
     common::Price price;
     common::Quantity size;
     BlockNumber good_till_block;
-    bool reduce_only = false;
-    uint32_t client_metadata = 0;
+    bool reduce_only;
+    uint32_t client_metadata;
 };
 
 std::string CreatePlaceOrderMessage(
-    const ExchangeInfo& exchange_info, const AccountInfo& account_info, const PlaceShortTermOrderParams& params
+    const ExchangeInfo& exchange_info, const AccountInfo& account_info, const LowLevelPlaceShortTermOrderParams& params
 );
 
 enum class ConditionType {
@@ -76,42 +76,42 @@ struct ConditionalOrderParams {
     common::Price trigger_price;
 };
 
-struct PlaceLongTermOrderParams {
+struct LowLevelPlaceLongTermOrderParams {
     common::Symbol symbol;
     OrderSide side;
-    PlaceOrderTimeInForce time_in_force = PlaceOrderTimeInForce::UNSPECIFIED;
+    PlaceOrderTimeInForce time_in_force;
     OrderCid order_cid;
     common::Price price;
     common::Quantity size;
     uint32_t good_till_timestamp;
-    bool reduce_only = false;
-    std::optional<ConditionalOrderParams> conditional_order_params = std::nullopt;
-    uint32_t client_metadata = 0;
+    bool reduce_only;
+    std::optional<ConditionalOrderParams> conditional_order_params;
+    uint32_t client_metadata;
 };
 
 std::string CreatePlaceOrderMessage(
-    const ExchangeInfo& exchange_info, const AccountInfo& account_info, const PlaceLongTermOrderParams& params
+    const ExchangeInfo& exchange_info, const AccountInfo& account_info, const LowLevelPlaceLongTermOrderParams& params
 );
 
-struct CancelShortTermOrderParams {
+struct LowLevelCancelShortTermOrderParams {
     common::Symbol symbol;
     OrderCid order_cid;
     BlockNumber good_till_block;
 };
 
 std::string CreateCancelOrderMessage(
-    const ExchangeInfo& exchange_info, const AccountInfo& account_info, const CancelShortTermOrderParams& params
+    const ExchangeInfo& exchange_info, const AccountInfo& account_info, const LowLevelCancelShortTermOrderParams& params
 );
 
-struct CancelLongTermOrderParams {
+struct LowLevelCancelLongTermOrderParams {
     common::Symbol symbol;
     OrderCid order_cid;
     uint32_t good_till_timestamp;
-    bool conditional = false;
+    bool conditional;
 };
 
 std::string CreateCancelOrderMessage(
-    const ExchangeInfo& exchange_info, const AccountInfo& account_info, const CancelLongTermOrderParams& params
+    const ExchangeInfo& exchange_info, const AccountInfo& account_info, const LowLevelCancelLongTermOrderParams& params
 );
 
 std::string CreateTransferMessage(
