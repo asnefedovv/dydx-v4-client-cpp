@@ -43,9 +43,9 @@ public:
         Unsubscribe("v4_markets");
     }
 
-    void SubscribeToTrades(std::string market)
+    void SubscribeToTrades(std::string market, bool batched = true)
     {
-        Subscribe("v4_trades", /*id=*/market, /*batched=*/true);
+        Subscribe("v4_trades", /*id=*/market, /*batched=*/batched);
     }
 
     void UnsubscribeFromTrades(std::string market)
@@ -53,9 +53,9 @@ public:
         Unsubscribe("v4_trades", /*id=*/market);
     }
 
-    void SubscribeToOrderbook(std::string market)
+    void SubscribeToOrderbook(std::string market, bool batched = true)
     {
-        Subscribe("v4_orderbook", /*id=*/market, /*batched=*/true);
+        Subscribe("v4_orderbook", /*id=*/market, /*batched=*/batched);
     }
 
     void UnsubscribeFromOrderbook(std::string market)
