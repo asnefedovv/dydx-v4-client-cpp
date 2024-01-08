@@ -1,5 +1,11 @@
 C++ client for dYdX (v4 API).
 
+---
+
+This client was originally developed and open-sourced through a grant by the dYdX Grants Trust — an unaffiliated and independent third-party from dYdX Trading Inc.
+
+---
+
 ## Development
 
 Install dependencies, on Ubuntu the command is:
