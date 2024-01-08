@@ -9,16 +9,16 @@
 
 namespace dydx_v4_client_lib {
 
-inline const common::RestConfig INDEXER_API_HOST_MAINNET {.host = "indexer.dydx.trade"};
 inline const common::RestConfig INDEXER_API_HOST_TESTNET {.host = "indexer.v4testnet.dydx.exchange"};
+// TODO: Add mainnet
 
-inline const common::WsConfig INDEXER_WS_HOST_MAINNET {.host = "indexer.dydx.trade"};
 inline const common::WsConfig INDEXER_WS_HOST_TESTNET {.host = "indexer.v4testnet.dydx.exchange"};
+// TODO: Add mainnet
 
 inline const common::RestConfig FAUCET_API_HOST_TESTNET {.host = "faucet.v4testnet.dydx.exchange"};
 
-inline const std::string NETWORK_ID_MAINNET = "dydx-mainnet-1";
 inline const std::string NETWORK_ID_TESTNET = "dydx-testnet-4";
+// TODO: Add mainnet
 
 inline const std::string EXAMPLE_WALLET_MNEMONIC =
     "minute envelope used million door host inject language crumble prison agree fish";  // On Goerli Network
