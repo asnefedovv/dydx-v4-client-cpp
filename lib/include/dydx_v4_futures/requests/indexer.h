@@ -180,14 +180,14 @@ public:
     struct GetPerpetualMarketTradesArgs {
         std::string market;
         std::optional<int> startingBeforeOrAtHeight = std::nullopt;
-        std::optional<int> number = std::nullopt;
+        std::optional<int> limit = std::nullopt;
     };
 
     nlohmann::json GetPerpetualMarketTrades(const GetPerpetualMarketTradesArgs& args)
     {
-        return Get(common::UrlPath(fmt::format("/v4/trades/perpetualMarket/{}{}", args.market))
+        return Get(common::UrlPath(fmt::format("/v4/trades/perpetualMarket/{}", args.market))
                        .AddArg("startingBeforeOrAtHeight", args.startingBeforeOrAtHeight)
-                       .AddArg("number", args.number)
+                       .AddArg("limit", args.limit)
                        .Get());
     }
 

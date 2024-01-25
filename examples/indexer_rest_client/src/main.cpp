@@ -12,8 +12,12 @@ int main()
         dydx_v4_client_lib::LocalAccountInfo::FromMnemonic(dydx_v4_client_lib::EXAMPLE_DYDX_V4_MNEMONIC);
     dydx_v4_client_lib::IndexerRestClient indexer_client(dydx_v4_client_lib::INDEXER_API_HOST_TESTNET);
 
-    std::cout << "BTC orderbook: " << indexer_client.GetPerpetualMarketOrderbook("BTC-USD") << std::endl;
     std::cout << "perpetual markets: " << indexer_client.GetPerpetualMarkets() << std::endl;
+
+    std::cout << "BTC orderbook: " << indexer_client.GetPerpetualMarketOrderbook("BTC-USD") << std::endl;
+    std::cout << "BTC trades: " << indexer_client.GetPerpetualMarketTrades({
+                                       .market = "BTC-USD"
+                                   }) << std::endl;
 
     std::cout << "all subaccounts: " << indexer_client.GetSubaccounts(local_account_info.GetAccountAddress())
               << std::endl;
