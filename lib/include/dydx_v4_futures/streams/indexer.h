@@ -10,11 +10,36 @@ namespace dydx_v4_client_lib {
 
 class IndexerWsClient : public common::WsClient {
 public:
-    using common::WsClient::WsClient;
+    explicit IndexerWsClient(common::WsConfig config)
+        : common::WsClient(config)
+    {
+        common::WsClient::SetMessageCallback([this](const std::string& message) {
+            if (message == "PING") {
+                SendMessage("PONG");
+                return;
+            }
+            if (m_user_callback) {
+                m_user_callback(message);
+            }
+        });
+    }
 
     explicit IndexerWsClient(const ExchangeConfig& config)
         : IndexerWsClient(*config.indexer_ws_config)
     {}
+
+    IndexerWsClient(IndexerWsClient&&) = delete;
+    IndexerWsClient(const IndexerWsClient&) = delete;
+    IndexerWsClient& operator=(IndexerWsClient&&) = delete;
+    IndexerWsClient& operator=(const IndexerWsClient&) = delete;
+
+    void SetMessageCallback(MessageCallback callback) override
+    {
+        if (m_user_callback) {
+            throw std::runtime_error("Message callback already set");
+        }
+        m_user_callback = std::move(callback);
+    }
 
     void Subscribe(std::string channel, std::optional<std::string> id = std::nullopt, bool batched = false)
     {
@@ -86,6 +111,9 @@ public:
         auto id = subaccount.account_address + "/" + std::to_string(subaccount.subaccount_number);
         Unsubscribe("v4_subaccounts", /*id=*/id);
     }
+
+private:
+    MessageCallback m_user_callback;
 };
 
 }  // namespace dydx_v4_client_lib

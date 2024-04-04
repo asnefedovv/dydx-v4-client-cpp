@@ -26,8 +26,12 @@ public:
     using MessageCallback = std::function<void(std::string)>;
 
     explicit WsClient(WsConfig config);
+    WsClient(WsClient&&) = delete;
+    WsClient(const WsClient&) = delete;
+    WsClient& operator=(WsClient&&) = delete;
+    WsClient& operator=(const WsClient&) = delete;
 
-    void SetMessageCallback(MessageCallback callback);
+    virtual void SetMessageCallback(MessageCallback callback);
 
     void SendMessage(std::string message);
 

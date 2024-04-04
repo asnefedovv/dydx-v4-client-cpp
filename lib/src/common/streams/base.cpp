@@ -37,6 +37,9 @@ WsClient::WsClient(WsConfig config)
 
 void WsClient::SetMessageCallback(MessageCallback callback)
 {
+    if (m_callback) {
+        throw std::runtime_error("WS message callback already set");
+    }
     m_callback = std::move(callback);
 }
 
