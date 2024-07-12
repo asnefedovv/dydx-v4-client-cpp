@@ -11,7 +11,7 @@ This client was originally developed and open-sourced through a grant by the dYd
 Install dependencies, on Ubuntu the command is:
 
 ```
-sudo apt install build-essential libprotobuf-dev protobuf-compiler libssl-dev
+sudo apt install build-essential cmake libprotobuf-dev protobuf-compiler libssl-dev
 ```
 
 The project uses CMake. To build the library and examples run
